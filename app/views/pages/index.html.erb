@@ -10,10 +10,9 @@
                 <input type="number" min = "1" max = "100"  name="ancho" class="form-control" placeholder="Ancho en cm." required>
                 <label for="alto">Alto de la etiqueta</label>
                 <input type="number" min = "1" max = "100" name="alto" class="form-control" placeholder="Alto en cm." required>
-                <label for="cantidad">Cantidad de etiquetas</label>
-                <input type="number" name="cantidad" class="form-control" placeholder="Cantidad de Etiquetas" required>
                 <div><%= submit_tag 'Calcular', class: "btn btn-primary mt-3" %></div>
             </div>
         <% end -%>
     </div>
+    <%= render 'calcular' %>
 </div>

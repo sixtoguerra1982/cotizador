@@ -1,2 +1,2 @@
-alert('<%= @dimensiontotal %>');
-
+$('#list_product').empty();
+$('#list_product').append("<%= j render(:partial => 'calcular') %>");

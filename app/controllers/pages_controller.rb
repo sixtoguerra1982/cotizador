@@ -9,12 +9,12 @@ class PagesController < ApplicationController
     @dimensiony = plano / params[:alto].to_i
     @dimensiontotal = @dimensionx * @dimensiony
     @etiqueta = {dimension_total: @dimensiontotal , x: @dimensionx, y: @dimensiony}
-    @etiqueta[:dos] = [@dimensiontotal * 2]
-    @etiqueta[:tres] = [@dimensiontotal * 3]
-    @etiqueta[:cuatro] = [@dimensiontotal * 4]
-    @etiqueta[:cinco] = [@dimensiontotal * 5]
-    @etiqueta[:seis] = [@dimensiontotal * 6]
-    @etiqueta[:siete] = [@dimensiontotal * 7]
-    @etiqueta[:ocho] = [@dimensiontotal * 8]
+    neto = [12000,12000,12000,10000,10000,10000,10000,10000,10000,10000,10000,7000,7000]
+    12.times do |i|
+      @etiqueta["p" + (i+1).to_s] = [@dimensiontotal * (i + 1)]
+      @etiqueta["p" + (i+1).to_s].push (i + 1) * neto[i]
+      @etiqueta["p" + (i+1).to_s].push (((i + 1) * neto[i]) * 0.19).to_i
+      @etiqueta["p" + (i+1).to_s].push @etiqueta["p" + (i+1).to_s][1] + @etiqueta["p" + (i+1).to_s][2]
+    end
   end
 end
